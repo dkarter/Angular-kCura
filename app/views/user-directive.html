@@ -1,0 +1,9 @@
+<td><img ng-src="{{user.picture}}" /></td>
+<td>{{user.name}}</td>
+<td>{{user.gender | uppercase | limitTo:1 }}</td>
+<td>{{user.eyeColor}}</td>
+<td>{{user.company}}</td>
+<td>{{user.email}}</td>
+<td>{{user.moneyInTheBank | currency}}</td>
+<td>{{user.about | cut:true:20 }}</td>
+<td>{{user.registered | date:'h in the morning'}}</td>

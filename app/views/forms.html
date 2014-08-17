@@ -1,0 +1,33 @@
+
+
+<form name="commentForm" ng-submit="commentForm.$valid && addReview()" novalidate>
+	<input type="text" ng-model="review.name" placeholder="Name" class="form-control" required><br />
+	<input type="email" ng-model="review.email" placeholder="Email" class="form-control" required><br />
+	<textarea name="text" id="comment-text" cols="30" rows="10" ng-model="review.text" class="form-control" required></textarea><br />
+	<div class="checkbox">
+		<label for="private"><input type="checkbox" name="private" id="private" ng-model="review.private"> Private?</label>
+	</div>
+	<input type="submit" value="Submit" class="btn btn-primary">
+</form>
+<br />
+<!-- Form is valid: {{commentForm.$valid}} -->
+
+<div class="well" ng-show="commentForm.$valid">
+	<h4>Comment Preview</h4>
+	<blockquote>
+		<p>{{review.text}}</p>	
+		<footer>
+			<cite ng-show="review.name && review.email">{{review.name}} ({{review.email}})</cite>
+		</footer>
+	</blockquote>
+	
+</div>
+
+<div ng-repeat="rev in reviews">
+	<blockquote ng-class="{true:'private', false:'public'}[rev.private]">
+		<p>{{rev.text}}</p>	
+		<footer>
+			<cite ng-show="rev.name && rev.email">{{rev.name}} ({{rev.email}})</cite>
+		</footer>
+	</blockquote>
+</div>

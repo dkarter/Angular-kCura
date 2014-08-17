@@ -1,0 +1,10 @@
+<p>This is the demo view.</p>
+Search: <input type="text" ng-model="searchText" />
+{{ searchText }}
+<br />
+<br />
+<div class="well">
+	<ul ng-repeat="thing in awesomeThings | filter:searchText" ng-class="animation" class="scale-fade">
+		<li>{{thing}}</li>
+	</ul>
+</div>
