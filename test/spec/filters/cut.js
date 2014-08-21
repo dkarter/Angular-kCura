@@ -3,7 +3,7 @@
 describe('Filter: cut', function () {
 
   // load the filter's module
-  beforeEach(module('angularKcuraApp'));
+  beforeEach(module('angularKCuraApp'));
 
   // initialize a new instance of the filter before each test
   var cut;
@@ -11,9 +11,9 @@ describe('Filter: cut', function () {
     cut = $filter('cut');
   }));
 
-  it('should return the input prefixed with "cut filter:"', function () {
-    var text = 'angularjs';
-    expect(cut(text)).toBe('cut filter: ' + text);
+  it('should return a cut string with an elipsis at its end', function () {
+    var text = 'angularjs is a great framework';
+    expect(cut(text, false, 4)).toBe('angu …');
   });
 
 });
